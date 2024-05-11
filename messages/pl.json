@@ -1,5 +1,9 @@
 {
-    "Index": {
-        "title": "Witaj Świecie!"
+    "SideNavLinks": {
+		"boards": "Tablice",
+		"notifications": "Powiadomienia",
+		"teams": "Zespoły",
+		"settings": "Ustawienia",
+		"logout": "Wyloguj"
     }
 }

@@ -1,5 +1,9 @@
 {
-    "Index": {
-        "title": "Hello World!"
+    "SideNavLinks": {
+		"boards": "Boards",
+		"notifications": "Notifications",
+		"teams": "Teams",
+		"settings": "Settings",
+		"logout": "Sign Out"
     }
 }

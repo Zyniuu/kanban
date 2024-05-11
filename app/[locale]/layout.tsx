@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
-import "./globals.css";
 import { locales } from "@/i18n.config";
+import "@/styles/globals.css";
+import { inter } from "@/constants/fonts";
 
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   	title: "Kanban",
