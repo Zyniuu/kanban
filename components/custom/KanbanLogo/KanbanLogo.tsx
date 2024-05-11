@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import { SparklesIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { memo } from 'react';
 
 
 type Props = {
@@ -39,4 +40,4 @@ const KanbanLogo = ({ variant, params: { locale } }: Props) => {
     )
 }
 
-export default KanbanLogo
+export default memo(KanbanLogo)

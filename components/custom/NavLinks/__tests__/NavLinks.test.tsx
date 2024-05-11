@@ -17,13 +17,15 @@ describe('NavLinks Component', () => {
     const locale = 'en';
     const messages = require(`../../../../messages/${locale}.json`);
 
-    it('should render all 4 links with labels and icons', () => {
-        // ARRANGE
+    beforeEach(() => {
         render(
             <NextIntlClientProvider messages={messages} locale={locale}>
                 <NavLinks params={{locale}} />
             </NextIntlClientProvider>
         );
+    });
+
+    it('should render all 4 links with labels and icons', () => {
         // ACT
         const linksArray = screen.getAllByRole('link');
         // ASSERT
@@ -35,12 +37,6 @@ describe('NavLinks Component', () => {
     });
 
     it('should render active link with different background and text color', () => {
-        // ARRANGE
-        render(
-            <NextIntlClientProvider messages={messages} locale={locale}>
-                <NavLinks params={{locale}} />
-            </NextIntlClientProvider>
-        );
         // ACT
         const activeLink = screen.getByRole('link', { name: 'Boards' });
         // ASSERT

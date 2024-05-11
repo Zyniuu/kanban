@@ -13,13 +13,16 @@ describe('SideNav Component', () => {
     const locale = 'en';
     const messages = require(`../../../../messages/${locale}.json`);
 
-    it('should render a logout button', () => {
+    beforeEach(() => {
         // ARRANGE
         render( 
             <NextIntlClientProvider messages={messages} locale={locale}>
                 <SideNav params={{locale}} />
             </NextIntlClientProvider>
         );
+    });
+
+    it('should render a logout button', () => {
         // ACT
         const logoutBtn = screen.getByRole('button', { name: /sign out/i });
         // ASSERT
@@ -27,12 +30,6 @@ describe('SideNav Component', () => {
     });
 
     it('should render kanban logo', () => {
-        // ARRANGE
-        render( 
-            <NextIntlClientProvider messages={messages} locale={locale}>
-                <SideNav params={{locale}} />
-            </NextIntlClientProvider>
-        );
         // ACT
         const logoImage = screen.getByTestId('SparklesIcon');
         const logoText = screen.getByText(/kanban/i);
@@ -42,12 +39,6 @@ describe('SideNav Component', () => {
     });
 
     it('should render all navigation links', () => {
-        // ARRANGE
-        render( 
-            <NextIntlClientProvider messages={messages} locale={locale}>
-                <SideNav params={{locale}} />
-            </NextIntlClientProvider>
-        );
         // ACT & ASSERT
         links.map((link) => {
             const navLink = screen.getByRole('link', { name: link.label });

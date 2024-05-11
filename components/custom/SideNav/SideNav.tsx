@@ -2,6 +2,7 @@ import KanbanLogo from "../KanbanLogo/KanbanLogo"
 import NavLinks from "../NavLinks/NavLinks"
 import { useTranslations } from "next-intl"
 import { PowerIcon } from '@heroicons/react/24/outline'
+import { memo } from "react"
 
 
 type Props = {
@@ -26,15 +27,17 @@ const SideNav = ({ params: { locale } }: Props) => {
 
                 <div className="hidden h-full md:block"></div>
 
-                <button className="flex flex-row py-3 w-full justify-center gap-3 text-gray-500 font-bold rounded-lg text-base hover:bg-gray-200 hover:text-gray-800 md:px-[10px] md:justify-start">
-                    <PowerIcon className="w-8 md:w-6" />
-                    <span className="hidden md:block">
-                        {t('logout')}
-                    </span>
-                </button>
+                <form className="w-1/5 md:w-full">
+                    <button className="flex flex-row py-3 w-full justify-center gap-3 text-gray-500 font-bold rounded-lg text-base hover:bg-gray-200 hover:text-gray-800 md:px-[10px] md:justify-start">
+                        <PowerIcon className="w-8 md:w-6" />
+                        <span className="hidden md:block">
+                            {t('logout')}
+                        </span>
+                    </button>
+                </form>
             </div>
         </div>
     )
 }
 
-export default SideNav
+export default memo(SideNav)

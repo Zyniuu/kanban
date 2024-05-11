@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { memo } from "react";
 
 
 type Props = {
@@ -41,4 +42,4 @@ const NavLinks = ({ params: { locale } }: Props) => {
     )
 }
 
-export default NavLinks
+export default memo(NavLinks)
