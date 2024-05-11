@@ -31,7 +31,7 @@ const TEInput = ({ label, placeholder, id, ariaDescribedBy, type }: Props) => {
             </label>
             <div className='w-full relative'>
                 <input
-                    className='w-full pl-[14px] py-3 border-2 border-gray-300 rounded-lg placeholder:text-gray-400 outline-none'
+                    className='w-full pr-12 pl-[14px] py-3 border-2 border-gray-300 rounded-lg placeholder:text-gray-400 outline-none'
                     type={type}
                     id={id}
                     name={id}
@@ -39,6 +39,7 @@ const TEInput = ({ label, placeholder, id, ariaDescribedBy, type }: Props) => {
                     placeholder={placeholder}
                     value={value}
                     onChange={handleChange}
+                    autoComplete={type == 'email' ? 'on' : 'off'}
                 />
                 {value.length > 0 && (
                     <XCircleIcon 

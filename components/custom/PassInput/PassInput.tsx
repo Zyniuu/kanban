@@ -26,12 +26,13 @@ const PassInput = ({ label, placeholder, id, ariaDescribedBy }: Props) => {
             </label>
             <div className='w-full relative'>
                 <input 
-                    className='w-full pl-[14px] py-3 border-2 border-gray-300 rounded-lg placeholder:text-gray-400 outline-none'
+                    className='w-full pl-[14px] pr-12 py-3 border-2 border-gray-300 rounded-lg placeholder:text-gray-400 outline-none'
                     type={ !visible ? "password" : "text" }
                     id={id}
                     aria-describedby={ariaDescribedBy}
                     name={id}
                     placeholder={placeholder}
+                    autoComplete="off"
                 />
                 {visible ? (
                     <EyeSlashIcon
