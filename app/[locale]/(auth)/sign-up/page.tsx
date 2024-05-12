@@ -1,4 +1,5 @@
 import SignUpForm from "@/components/forms/SignUpForm/SignUpForm";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 
 type Props = {
@@ -8,6 +9,8 @@ type Props = {
 };
 
 const SignUp = ({ params: { locale } }: Props) => {
+    unstable_setRequestLocale(locale);
+
     return (
         <SignUpForm params={{ locale }} />
     )

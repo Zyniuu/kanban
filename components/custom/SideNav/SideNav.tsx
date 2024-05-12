@@ -18,7 +18,7 @@ const SideNav = ({ params: { locale } }: Props) => {
         <div className="flex h-full flex-col bg-white">
             <div className="h-20 bg-white md:h-40">
                 <div className="flex flex-col justify-center w-11/12 mx-auto h-full md:w-[85%]">
-                    <KanbanLogo params={{locale}} variant="small" />
+                    <KanbanLogo variant="small" />
                 </div>
             </div>
 
