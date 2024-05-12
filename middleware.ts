@@ -36,8 +36,6 @@ const authMiddleware = auth((req) => {
             return NextResponse.redirect(new URL('/kanban', req.nextUrl));
         case isPublicPage:
             return intlMiddleware(req);
-        default:
-            return notFound();
     }
 });
 

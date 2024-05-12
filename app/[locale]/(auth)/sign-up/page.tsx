@@ -1,4 +1,5 @@
 import SignUpForm from "@/components/forms/SignUpForm/SignUpForm";
+import { signup } from "@/lib/actions/user.actions";
 import { unstable_setRequestLocale } from "next-intl/server";
 
 
