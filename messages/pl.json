@@ -5,5 +5,22 @@
 		"teams": "Zespoły",
 		"settings": "Ustawienia",
 		"logout": "Wyloguj"
-    }
+    },
+	"Forms": {
+		"username": "Nazwa użytkownika",
+		"usernamePlaceholder": "Podaj nazwę użytkownika",
+		"email": "Email",
+		"emailPlaceholder": "Podaj adres email",
+		"pass": "Hasło",
+		"passPlaceholder": "Podaj hasło",
+		"confirmPass": "Potwierdź hasło",
+		"confirmPassPlaceholder": "Potwierdź hasło",
+		"noAccount": "Nie posiadasz konta?",
+		"hasAccount": "Posiadasz już konto?",
+		"signupTitle": "Utwórz Konto",
+		"signupDesc": "Proszę wypełnić poniższe pola aby utworzyć nowe konto.",
+		"signinTitle": "Zaloguj się",
+		"signinDesc": "Proszę wypełnić poniższe pola aby uzyskać dostęp do konta.",
+		"signupBtn": "Utwórz Konto"
+	}
 }

@@ -11,7 +11,7 @@ describe('KanbanLogo Component', () => {
         // ARRANGE
         render(
             <NextIntlClientProvider messages={messages} locale={locale}>
-                <KanbanLogo variant='big' params={{locale}} />
+                <KanbanLogo variant='big' />
             </NextIntlClientProvider>
         );
         // ACT
@@ -26,7 +26,7 @@ describe('KanbanLogo Component', () => {
         // ARRANGE
         render(
             <NextIntlClientProvider messages={messages} locale={locale}>
-                <KanbanLogo variant='big' params={{locale}} />
+                <KanbanLogo variant='big' />
             </NextIntlClientProvider>
         );
         // ACT
@@ -39,7 +39,7 @@ describe('KanbanLogo Component', () => {
         // ARRANGE
         render(
             <NextIntlClientProvider messages={messages} locale={locale}>
-                <KanbanLogo variant='small' params={{locale}} />
+                <KanbanLogo variant='small' />
             </NextIntlClientProvider>
         );
         // ACT
@@ -52,7 +52,7 @@ describe('KanbanLogo Component', () => {
         // ARRANGE
         render(
             <NextIntlClientProvider messages={messages} locale={locale}>
-                <KanbanLogo variant='big' params={{locale}} />
+                <KanbanLogo variant='big' />
             </NextIntlClientProvider>
         );
         // ACT
@@ -65,7 +65,7 @@ describe('KanbanLogo Component', () => {
         // ARRANGE
         render(
             <NextIntlClientProvider messages={messages} locale={locale}>
-                <KanbanLogo variant='small' params={{locale}} />
+                <KanbanLogo variant='small' />
             </NextIntlClientProvider>
         );
         // ACT
@@ -78,7 +78,7 @@ describe('KanbanLogo Component', () => {
         // ARRANGE
         render(
             <NextIntlClientProvider messages={messages} locale={locale}>
-                <KanbanLogo variant='big' params={{locale}} />
+                <KanbanLogo variant='big' />
             </NextIntlClientProvider>
         );
         // ACT
@@ -91,7 +91,7 @@ describe('KanbanLogo Component', () => {
         // ARRANGE
         render(
             <NextIntlClientProvider messages={messages} locale={locale}>
-                <KanbanLogo variant='small' params={{locale}} />
+                <KanbanLogo variant='small' />
             </NextIntlClientProvider>
         );
         // ACT

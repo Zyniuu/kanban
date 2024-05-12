@@ -34,7 +34,7 @@ const PassInput = ({ label, placeholder, id, ariaDescribedBy }: Props) => {
                     placeholder={placeholder}
                     autoComplete="off"
                 />
-                {visible ? (
+                {!visible ? (
                     <EyeSlashIcon
                         className='cursor-pointer w-6 h-6 absolute top-1/2 -translate-y-1/2 right-3 text-gray-400 hover:text-gray-800'
                         onClick={handleClick}

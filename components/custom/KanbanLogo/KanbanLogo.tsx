@@ -6,12 +6,9 @@ import { memo } from 'react';
 
 type Props = {
     variant: 'big' | 'small',
-    params: {
-        locale: string,
-    },
 }
 
-const KanbanLogo = ({ variant, params: { locale } }: Props) => {
+const KanbanLogo = ({ variant }: Props) => {
 
     return (
         <Link

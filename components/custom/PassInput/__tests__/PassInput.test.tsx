@@ -25,7 +25,7 @@ describe('PassInput Component', () => {
         // Act
         const labelElem = screen.getByLabelText(label);
         const inputElem = screen.getByPlaceholderText(placeholder);
-        const iconElem = screen.getByTestId(`${id}-eye`);
+        const iconElem = screen.getByTestId(`${id}-eyeslash`);
 
         // Assert
         expect(labelElem).toBeInTheDocument();
@@ -36,22 +36,22 @@ describe('PassInput Component', () => {
     it('should toggle password visibility when eye icon is clicked', async () => {
         // Act
         await act(async () => {
-            fireEvent.click(screen.getByTestId(`${id}-eye`));
+            fireEvent.click(screen.getByTestId(`${id}-eyeslash`));
         });
   
         // Assert
-        expect(screen.getByTestId(`${id}-eyeslash`)).toBeInTheDocument();
-        expect(screen.queryByTestId(`${id}-eye`)).not.toBeInTheDocument();
+        expect(screen.getByTestId(`${id}-eye`)).toBeInTheDocument();
+        expect(screen.queryByTestId(`${id}-eyeslash`)).not.toBeInTheDocument();
         expect(screen.getByLabelText(label)).toHaveAttribute('type', 'text');
 
         // Act
         await act(async () => {
-            fireEvent.click(screen.getByTestId(`${id}-eyeslash`));
+            fireEvent.click(screen.getByTestId(`${id}-eye`));
         });
 
         // Assert
-        expect(screen.getByTestId(`${id}-eye`)).toBeInTheDocument();
-        expect(screen.queryByTestId(`${id}-eyeslash`)).not.toBeInTheDocument();
+        expect(screen.getByTestId(`${id}-eyeslash`)).toBeInTheDocument();
+        expect(screen.queryByTestId(`${id}-eye`)).not.toBeInTheDocument();
         expect(screen.getByLabelText(label)).toHaveAttribute('type', 'password');
     });
 });

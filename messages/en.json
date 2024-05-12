@@ -5,5 +5,22 @@
 		"teams": "Teams",
 		"settings": "Settings",
 		"logout": "Sign Out"
-    }
+    },
+	"Forms": {
+		"username": "Username",
+		"usernamePlaceholder": "Enter your username",
+		"email": "Email",
+		"emailPlaceholder": "Enter your email",
+		"pass": "Password",
+		"passPlaceholder": "Enter your password",
+		"confirmPass": "Confirm password",
+		"confirmPassPlaceholder": "Confirm your password",
+		"noAccount": "Don't have an account?",
+		"hasAccount": "Already have an account?",
+		"signupTitle": "Create an account",
+		"signupDesc": "Please fill in the details below to create your account.",
+		"signinTitle": "Sign In",
+		"signinDesc": "Please fill in the details below to access your account.",
+		"signupBtn": "Sign Up"
+	}
 }
