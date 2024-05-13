@@ -37,14 +37,13 @@ describe('api/users/signup', () => {
         jest.spyOn(bcrypt, 'hash').mockImplementationOnce((elem) => ('hashedPassword'));
 
         // Mocking User.save
-        const savedUser = {
+        User.prototype.save = jest.fn().mockResolvedValue({
             _id: '123456789',
             username: 'testuser',
             email: 'test@example.com',
             locale: 'en',
             imageUrl: '/images/user.png',
-        };
-        User.prototype.save = jest.fn().mockResolvedValue(savedUser);
+        });
         
         // mocking the `json` method of the `NextResponse` object.
         NextResponse.json = jest.fn().mockImplementation((elem) => (elem));
@@ -53,10 +52,10 @@ describe('api/users/signup', () => {
         const response = await POST(req as unknown as NextRequest);
 
         // ASSERT
-        expect(User.findOne).toHaveBeenCalledWith({ $or: [{ username: 'testuser' }, { email: 'test@example.com' }] });
+        expect(User.findOne).toHaveBeenCalledWith({ email: 'test@example.com' });
         expect(bcrypt.hash).toHaveBeenCalledWith('password123', 10);
         expect(User.prototype.save).toHaveBeenCalled();
-        expect(response).toEqual(NextResponse.json({ success: true, data: savedUser }, { status: 201 }));
+        expect(response).toEqual(NextResponse.json({ success: true }, { status: 201 }));
     });
 
     it('should return a 500 error response when an error occurs', async () => {

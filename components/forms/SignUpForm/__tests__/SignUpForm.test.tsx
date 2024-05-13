@@ -1,7 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import SignUpForm from '../SignUpForm';
+import { useFormState } from "react-dom"
 
+
+jest.mock("react-dom", () => ({
+    ...jest.requireActual("react-dom"),
+    useFormState: jest.fn(() => [{ errors: {} }, '']),
+    useFormStatus: jest.fn(() => true),
+}));
 
 describe('SignUpForm Component', () => {
     const locale = 'en';
@@ -60,5 +67,38 @@ describe('SignUpForm Component', () => {
         // ASSERT
         expect(prompt).toBeInTheDocument();
         expect(link).toHaveAttribute('href', '/sign-in');
+    });
+});
+
+describe('SignUpForm Component Errors', () => {
+    const locale = 'en';
+    const messages = require(`../../../../messages/${locale}.json`);
+
+    it('it should render an error messages when input fields are left empty on submition', () => {
+        // ARRANGE
+        // simulate epmty fields on submition
+        jest.mocked(useFormState).mockReturnValue([{ errors: {
+            username: ['usernameEmptyError'],
+            email: ['emailEmptyError'],
+            pass: ['passEmptyError'],
+            confirmPass: ['confirmPassEmptyError'],
+        } }, '']);
+        render(
+            <NextIntlClientProvider messages={messages} locale={locale}>
+                <SignUpForm params={{ locale }} />
+            </NextIntlClientProvider>
+        );
+
+        // ACT
+        const usernameErr = screen.getByText('Please enter a username.');
+        const emailErr = screen.getByText('Please enter an email.');
+        const passlErr = screen.getByText('Please enter a password.');
+        const confirmPassErr = screen.getByText('Please confirm your password.');
+
+        // ASSERT
+        expect(usernameErr).toBeInTheDocument();
+        expect(emailErr).toBeInTheDocument();
+        expect(passlErr).toBeInTheDocument();
+        expect(confirmPassErr).toBeInTheDocument();
     });
 });

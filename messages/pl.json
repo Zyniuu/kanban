@@ -22,5 +22,17 @@
 		"signinTitle": "Zaloguj się",
 		"signinDesc": "Proszę wypełnić poniższe pola aby uzyskać dostęp do konta.",
 		"signupBtn": "Utwórz Konto"
+	},
+	"FormErrors": {
+		"usernameEmptyError": "Proszę wprowadzić nazwę użytkownika.",
+		"usernameTooShortError": "Nazwa użytkownika musi zawierać przynajmniej 4 znaki.",
+		"emailEmptyError": "Proszę wprowadzić adres email.",
+		"emailInvalidError": "Proszę wprowadzić poprawny adres email.",
+		"emailTakenError": "Ten email jest już zarejestrowany.",
+		"passEmptyError": "Proszę wprowadzić hasło.",
+		"passTooShortError": "Hasło musi zawierać przynajmniej 6 znaków.",
+		"confirmPassEmptyError": "Proszę potwierdzić hasło.",
+		"passNoMatchError": "Hasła nie są takie same.",
+		"internalError": "Coś poszło nie tak."
 	}
 }

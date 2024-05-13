@@ -11,7 +11,7 @@ export const POST = async (req: NextRequest) => {
         // extract data from the request
         const { username, email, password, locale } = await req.json();
         // check if user with given username or email already exists
-        const user = await User.findOne({ $or: [{ username: username }, { email: email }] });
+        const user = await User.findOne({ email: email });
         if (user) return NextResponse.json({ success: false }, { status: 400 });
         // hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -22,14 +22,8 @@ export const POST = async (req: NextRequest) => {
             password: hashedPassword,
             locale: locale,
         });
-        const savedUser = await newUser.save();
-        return NextResponse.json({ success: true, data: {
-            _id: savedUser._id,
-            username: savedUser.username,
-            email: savedUser.email,
-            locale: savedUser.locale,
-            imageUrl: savedUser.imageUrl,
-        } }, { status: 201 });  
+        await newUser.save();
+        return NextResponse.json({ success: true }, { status: 201 });  
     } catch (error) {
         return NextResponse.json({ success: false }, { status: 500 });
     }

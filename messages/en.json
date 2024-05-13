@@ -22,5 +22,17 @@
 		"signinTitle": "Sign In",
 		"signinDesc": "Please fill in the details below to access your account.",
 		"signupBtn": "Sign Up"
+	},
+	"FormErrors": {
+		"usernameEmptyError": "Please enter a username.",
+		"usernameTooShortError": "Username must contain at least 4 characters.",
+		"emailEmptyError": "Please enter an email.",
+		"emailInvalidError": "Please enter a valid email.",
+		"emailTakenError": "Email already registered.",
+		"passEmptyError": "Please enter a password.",
+		"passTooShortError": "Password must contain at least 6 characters.",
+		"confirmPassEmptyError": "Please confirm your password.",
+		"passNoMatchError": "Passwords do not match.",
+		"internalError": "Something went wrong."
 	}
 }
