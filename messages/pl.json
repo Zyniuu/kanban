@@ -33,6 +33,10 @@
 		"passTooShortError": "Hasło musi zawierać przynajmniej 6 znaków.",
 		"confirmPassEmptyError": "Proszę potwierdzić hasło.",
 		"passNoMatchError": "Hasła nie są takie same.",
-		"internalError": "Coś poszło nie tak."
+		"internalError": "Coś poszło nie tak. Spróbuj ponownie."
+	},
+	"Toasts": {
+		"signupSuccessTitle": "Konto zostało utworzone!",
+		"signupSuccessDesc": "Możesz się teraz zalogować do swojego konta."
 	}
 }

@@ -33,6 +33,10 @@
 		"passTooShortError": "Password must contain at least 6 characters.",
 		"confirmPassEmptyError": "Please confirm your password.",
 		"passNoMatchError": "Passwords do not match.",
-		"internalError": "Something went wrong."
+		"internalError": "Something went wrong. Please try again."
+	},
+	"Toasts": {
+		"signupSuccessTitle": "The account has been created!",
+		"signupSuccessDesc": "You can now sign in to your account."
 	}
 }

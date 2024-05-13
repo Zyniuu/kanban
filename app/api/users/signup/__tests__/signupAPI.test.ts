@@ -2,12 +2,11 @@ import { POST } from "../route";
 import User from '../../../../../lib/database/models/user.model';
 import bcrypt from 'bcryptjs';
 import { NextRequest, NextResponse } from "next/server";
-// import httpMocks from 'node-mocks-http';
 
 
 // Mocking the database connection
 jest.mock('../../../../../lib/database/index', () => ({
-    __esModule: true, // This line is important if using Babel
+    __esModule: true,
     default: jest.fn().mockResolvedValue({}),
 }));
 

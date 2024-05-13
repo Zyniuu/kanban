@@ -3,6 +3,13 @@ import { NextIntlClientProvider } from 'next-intl';
 import SignInForm from '../SignInForm';
 
 
+jest.mock('next/navigation', () => ({
+    ...jest.requireActual('next/navigation'),
+    useSearchParams: jest.fn().mockReturnValue({
+        get: () => 'signup-success',
+    }),
+}));
+
 describe('SignInForm Component', () => {
     const locale = 'en';
     const messages = require(`../../../../messages/${locale}.json`);

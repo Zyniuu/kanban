@@ -4,6 +4,7 @@ import {getMessages, unstable_setRequestLocale} from 'next-intl/server';
 import { locales } from "@/i18n.config";
 import "@/styles/globals.css";
 import { inter } from "@/constants/fonts";
+import { Toaster } from "@/components/ui/toaster";
 
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default async function RootLayout({
 				<NextIntlClientProvider messages={messages}>
 					{children}
 				</NextIntlClientProvider>
+				<Toaster />
 			</body>
 		</html>
 	);

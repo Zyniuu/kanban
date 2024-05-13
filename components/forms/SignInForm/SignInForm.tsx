@@ -1,9 +1,14 @@
+'use client'
+
 import AuthTitle from "@/components/custom/AuthTitle/AuthTitle"
 import KanbanLogo from "@/components/custom/KanbanLogo/KanbanLogo"
 import PassInput from "@/components/custom/PassInput/PassInput"
 import TEInput from "@/components/custom/TEInput/TEInput"
+import { useToast } from "@/components/ui/use-toast"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
+import { useSearchParams } from "next/navigation"
+import { memo, useRef } from "react"
 
 
 type Props = {
@@ -14,6 +19,21 @@ type Props = {
 
 const SignInForm = ({ params: { locale } }: Props) => {
     const t = useTranslations('Forms');
+    const tToast = useTranslations('Toasts');
+    const searchParams = useSearchParams();
+    const { toast } = useToast();
+    let wasShown = useRef(false);
+
+    if(!wasShown.current && searchParams.get('redirect') === 'signup-success') {
+        setTimeout(() => {
+            toast({
+                title: tToast('signupSuccessTitle'),
+                description: tToast('signupSuccessDesc'),
+                variant: 'success',
+            });
+        });
+        wasShown.current = true;
+    }
 
     return (
         <form className='flex flex-col gap-y-10 h-full w-full'>
@@ -55,4 +75,4 @@ const SignInForm = ({ params: { locale } }: Props) => {
     )
 }
 
-export default SignInForm
+export default memo(SignInForm)
