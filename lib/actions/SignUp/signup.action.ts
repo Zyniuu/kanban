@@ -12,9 +12,6 @@ export const signUp = async (
     const validatedFields = signUpFormSchema.safeParse(Object.fromEntries(formData.entries()));
 
     if (!validatedFields.success) {
-        console.log({
-            errors: validatedFields.error.flatten().fieldErrors
-        });
         return {
             errors: validatedFields.error.flatten().fieldErrors
         }
