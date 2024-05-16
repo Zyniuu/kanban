@@ -61,9 +61,8 @@ describe('api/users/signup', () => {
         // ARRANGE
         // Mocking the request
         const req = {
-            json: jest.fn().mockResolvedValue(testData)
+            json: jest.fn().mockRejectedValue(new Error('Internal Server Error'))
         };
-        req.json = jest.fn().mockRejectedValue(new Error('Internal Server Error'));
         // mocking the `json` method of the `NextResponse` object.
         NextResponse.json = jest.fn().mockImplementation((elem) => (elem));
 
@@ -80,7 +79,6 @@ describe('api/users/signup', () => {
         const req = {
             json: jest.fn().mockResolvedValue(testData)
         };
-        req.json = jest.fn().mockResolvedValue(testData);
         // mocking the `json` method of the `NextResponse` object.
         NextResponse.json = jest.fn().mockImplementation((elem) => (elem));
         User.findOne = jest.fn().mockResolvedValue(true);

@@ -33,6 +33,7 @@
 		"passTooShortError": "Hasło musi zawierać przynajmniej 6 znaków.",
 		"confirmPassEmptyError": "Proszę potwierdzić hasło.",
 		"passNoMatchError": "Hasła nie są takie same.",
+		"invalidCredentialsError": "Niepoprawne dane logowania",
 		"internalError": "Coś poszło nie tak. Spróbuj ponownie."
 	},
 	"Toasts": {

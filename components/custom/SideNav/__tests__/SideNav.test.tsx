@@ -3,6 +3,13 @@ import { render, screen } from '@testing-library/react';
 import SideNav from '../SideNav';
 
 
+jest.mock('next/navigation', () => ({
+    ...jest.requireActual('next/navigation'),
+    useRouter: jest.fn().mockReturnValue({
+        push: jest.fn(),
+    }),
+}));
+
 describe('SideNav Component', () => {
     const links = [
         { label: 'Boards',          icon: 'boards'        },

@@ -8,6 +8,9 @@ jest.mock('next/navigation', () => ({
     useSearchParams: jest.fn().mockReturnValue({
         get: () => 'signup-success',
     }),
+    useRouter: jest.fn().mockReturnValue({
+        push: jest.fn(),
+    }),
 }));
 
 describe('SignInForm Component', () => {

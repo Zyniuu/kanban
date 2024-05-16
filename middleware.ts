@@ -1,6 +1,5 @@
 import createMiddleware from 'next-intl/middleware';
 import { defaultLocale, localePrefix, locales } from './i18n.config';
-import { auth } from '@/auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { notFound } from 'next/navigation';
 
@@ -22,10 +21,11 @@ const publicPathnameRegex = RegExp(
     "i"
 )
 
-const authMiddleware = auth((req) => {
+export default function middleware(req: NextRequest) {
+    if (req.nextUrl.pathname.includes('/api')) return;
     const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
     const isKanban = req.nextUrl.pathname.includes('/kanban');
-    const isLoggedIn = !!req.auth;
+    const isLoggedIn = !!req.cookies.get('auth-kanban')?.value;
 
     switch (true) {
         case isKanban && isLoggedIn:
@@ -36,11 +36,9 @@ const authMiddleware = auth((req) => {
             return NextResponse.redirect(new URL('/kanban', req.nextUrl));
         case isPublicPage:
             return intlMiddleware(req);
+        default:
+            return notFound();
     }
-});
-
-export default function middleware(req: NextRequest) {
-    return (authMiddleware as any)(req);
 }
 
 export const config = {

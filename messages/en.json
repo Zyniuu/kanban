@@ -33,6 +33,7 @@
 		"passTooShortError": "Password must contain at least 6 characters.",
 		"confirmPassEmptyError": "Please confirm your password.",
 		"passNoMatchError": "Passwords do not match.",
+		"invalidCredentialsError": "Invalid credentials",
 		"internalError": "Something went wrong. Please try again."
 	},
 	"Toasts": {

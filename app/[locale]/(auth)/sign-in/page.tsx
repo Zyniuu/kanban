@@ -1,6 +1,5 @@
 import SignInForm from "@/components/forms/SignInForm/SignInForm"
 import { unstable_setRequestLocale } from "next-intl/server"
-import { Suspense } from "react";
 
 
 type Props = {
@@ -13,9 +12,7 @@ const SignIn = ({ params: { locale } }: Props) => {
     unstable_setRequestLocale(locale);
 
     return (
-        <Suspense>
             <SignInForm params={{ locale }} />
-        </Suspense>
     )
 }
 

@@ -31,3 +31,20 @@ export const signUpFormSchema = z.object({
     path: ['confirmPass'],
     message: 'passNoMatchError',
 });
+
+export type SignInState = {
+    errors?: {
+        email?: string[] | undefined,
+        pass?: string[] | undefined,
+    },
+};
+
+export const signInFormSchema = z.object({
+    email: z
+        .string()
+        .min(1, { message: 'emailEmptyError' })
+        .email({ message: 'emailInvalidError' }),
+    pass: z
+        .string()
+        .min(1, { message: 'passEmptyError' }),
+});
