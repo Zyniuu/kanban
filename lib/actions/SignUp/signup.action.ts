@@ -2,6 +2,9 @@
 
 import { redirect } from "next/navigation";
 import { signUpFormSchema, SignUpState } from "../../types/validation.types"
+import connectToDatabase from "@/lib/database";
+import User from '@/lib/database/models/user.model';
+import bcrypt from 'bcryptjs';
 
 
 export const signUp = async (
@@ -18,41 +21,23 @@ export const signUp = async (
     }
 
     try {
-        const res = await fetch(`${process.env.BASE_URL}/api/users/signup`, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: formData.get('username'),
-                email: formData.get('email'),
-                password: formData.get('pass'),
-                locale: locale,
-            }),
+        connectToDatabase();
+        // check if user with given email already exists
+        const user = await User.findOne({ email: validatedFields.data.email });
+        if (user) return { errors: { email: ['emailTakenError'] } };
+        // hash the password
+        const hashedPassword = await bcrypt.hash(validatedFields.data.pass, 10);
+        // save user to the database
+        const newUser = new User({
+            username: validatedFields.data.username,
+            email: validatedFields.data.email,
+            password: hashedPassword,
+            locale: locale,
         });
-
-        switch (res.status) {
-            case 400:
-                return {
-                    errors: {
-                        email: ['emailTakenError'],
-                    }
-                }
-            case 500:
-                return {
-                    errors: {
-                        confirmPass: ['internalError'],
-                    }
-                }
-        }
-
+        await newUser.save();
     } catch (error) {
-        return {
-            errors: {
-                confirmPass: ['internalError'],
-            }
-        }
+        return { errors: { confirmPass: ['internalError'] } };
     }
-    redirect('/sign-in?redirect=signup-success');
+
+    redirect(`/sign-in?redirect=signup-success`);
 }
