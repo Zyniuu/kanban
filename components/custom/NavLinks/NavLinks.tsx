@@ -24,7 +24,7 @@ const NavLinks = ({ params: { locale } }: Props) => {
                 const LinkIcon = link.icon;
                 return (
                     <Link
-                        href={link.href}
+                        href={`/${locale}${link.href}`}
                         key={link.label}
                         className={cn(
                             'nav__link',
